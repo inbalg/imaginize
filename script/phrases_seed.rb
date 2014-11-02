@@ -37,7 +37,6 @@ Phrase.create!(text: "Full metal jacket", category: "movies")
 Phrase.create!(text: "Fear and loathing in Las-Vegas", category: "movies")
 
 # proverbs
-Phrase.create!(text: "The grass is always greener on the other side", category: "proverbs")
 Phrase.create!(text: "Simplifying Buying", category: "proverbs")
 Phrase.create!(text: "Don't repeat yourself", category: "proverbs")
 Phrase.create!(text: "When in Rome, do as the Romans", category: "proverbs")
