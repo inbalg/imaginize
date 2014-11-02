@@ -4,7 +4,12 @@ class Phrase < ActiveRecord::Base
   include HTTParty
 
   def as_image
-    File.open("/Users/inbal/Pictures/interview1.jpeg", 'rb')
+    if id==1
+      File.open("/Users/inbal/Pictures/interview1.jpeg", 'rb')
+    else
+      File.open("/Users/inbal/Pictures/interview2.jpeg", 'rb')
+    end
+
   end
 
   def check_guess(guess)

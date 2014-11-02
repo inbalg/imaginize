@@ -4,8 +4,8 @@ class PhrasesController < ApplicationController
   # GET /phrases
   # GET /phrases.json
   def index
-    phrase_id = rand(1..Phrase.count)
-    redirect_to phrase_path(phrase_id)
+    @phrase = Phrase.find(rand(1..Phrase.count))
+    render :show
   end
 
   # GET /phrases/1
