@@ -1,0 +1,19 @@
+<div id="main">
+    <div>
+      <img class="spark" src="http://i361.photobucket.com/albums/oo54/crackysparkles/sparkles/sparkles-7.gif">
+      <h1 style="display:inline-block">IMAGINIZE</h1>
+      <img class="spark" src="http://i361.photobucket.com/albums/oo54/crackysparkles/sparkles/sparkles-7.gif">
+    </div>
+
+    <p>What's the phrase?</p>
+    <div>
+      <%= image_tag "/serve_image/#{@phrase.id}" %>
+    </div>
+
+    <p class="guess">Take a guess!</p>
+    <div>
+      <%= hidden_field_tag "phrase_id", @phrase.id %>
+      <%= text_field_tag "guess" %>
+      <%= button_tag "Guess!", onclick: "takeAGuess()" %>
+    </div>
+</div>
