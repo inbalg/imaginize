@@ -37,11 +37,15 @@ Phrase.create!(text: "Full metal jacket", category: "movies")
 Phrase.create!(text: "Fear and loathing in Las-Vegas", category: "movies")
 
 # proverbs
-Phrase.create!(text: "Simplifying Buying", category: "proverbs")
 Phrase.create!(text: "Don't repeat yourself", category: "proverbs")
 Phrase.create!(text: "When in Rome, do as the Romans", category: "proverbs")
 Phrase.create!(text: "A picture is worth a thousand words", category: "proverbs")
 Phrase.create!(text: "don't judge a book by its cover", category: "proverbs")
 Phrase.create!(text: "are we there yet", category: "proverbs")
+
+Phrase.all.each do |phrase|
+  phrase.text.downcase!
+  phrase.save!
+end
 
 puts "Done!"
