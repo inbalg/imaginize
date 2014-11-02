@@ -44,8 +44,7 @@ Phrase.create!(text: "don't judge a book by its cover", category: "proverbs")
 Phrase.create!(text: "are we there yet", category: "proverbs")
 
 Phrase.all.each do |phrase|
-  phrase.text.downcase!
-  phrase.save!
+  phrase.update(text: phrase.text.downcase)
 end
 
 puts "Done!"
