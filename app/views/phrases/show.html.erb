@@ -7,8 +7,8 @@
 
     <h2>What's the phrase?</h2>
     <div>
-      <%= image_tag "http://localhost:3003/v1/imaginize/#{@phrase.text}" %>
-      <%= hidden_field_tag "phrase_id", @phrase.id %>
+      <%= image_tag "http://10.235.34.215/v1/imaginize/#{@phrase.text}" %>
+      <br><br><br><%= label_tag "phrase_text", @phrase.text, class: "phrase_text" %>
     </div>
     <p class="guess">Take a guess!</p>
     <div>
@@ -21,6 +21,8 @@
     <p class="hint">Hint?</p><p class="hidden"><%=@phrase.category%></p>
   </div>
   <div>
-    <a href="./phrases">Get a new phrase</a>
+    <a href="/phrases">Get a new phrase</a>
+    |
+    <a href="#" onclick="revealAnswer()">Reveal answer</a>
   </div>
 </div>

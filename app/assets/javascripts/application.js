@@ -31,3 +31,7 @@ function takeAGuess() {
     alert("failed");
   });
 };
+
+function revealAnswer() {
+  $(".phrase_text").show();
+}
