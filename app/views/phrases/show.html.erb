@@ -5,15 +5,19 @@
       <img class="spark" src="http://i361.photobucket.com/albums/oo54/crackysparkles/sparkles/sparkles-7.gif">
     </div>
 
-    <p>What's the phrase?</p>
+    <h2>What's the phrase?</h2>
     <div>
-      <%= image_tag "/serve_image/#{@phrase.id}" %>
+      <%= image_tag "http://localhost:3003/v1/imaginize/#{@phrase.text}" %>
+      <%= hidden_field_tag "phrase_id", @phrase.id %>
     </div>
-
     <p class="guess">Take a guess!</p>
     <div>
       <%= hidden_field_tag "phrase_id", @phrase.id %>
       <%= text_field_tag "guess" %>
       <%= button_tag "Guess!", onclick: "takeAGuess()" %>
     </div>
+
+  <div>
+    <p class="hint">Hint?</p><p class="hidden"><%=@phrase.category%></p>
+  </div>
 </div>

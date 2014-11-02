@@ -3,7 +3,7 @@ require File.expand_path(File.join(File.dirname(__FILE__), '..', 'config', 'envi
 Phrase.delete_all
 
 # songs
-Phrase.create!(text: "Who let the dogs out?", category: "songs")
+Phrase.create!(text: "Who let the dogs out", category: "songs")
 Phrase.create!(text: "Imagine there's no heaven.. It's easy if you try", category: "songs")
 Phrase.create!(text: "Stairway to heaven", category: "songs")
 Phrase.create!(text: "If you're going to san-francisco", category: "songs")
@@ -44,6 +44,6 @@ Phrase.create!(text: "Don't repeat yourself", category: "proverbs")
 Phrase.create!(text: "When in Rome, do as the Romans", category: "proverbs")
 Phrase.create!(text: "A picture is worth a thousand words", category: "proverbs")
 Phrase.create!(text: "don't judge a book by its cover", category: "proverbs")
-Phrase.create!(text: "are we there yet?", category: "proverbs")
+Phrase.create!(text: "are we there yet", category: "proverbs")
 
 puts "Done!"

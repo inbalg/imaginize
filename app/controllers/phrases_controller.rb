@@ -14,15 +14,6 @@ class PhrasesController < ApplicationController
     @phrase = Phrase.find(params[:id])
   end
 
-  def serve_image
-    @phrase = Phrase.find(params[:id])
-
-    send_file( @phrase.as_image,
-               :disposition => 'inline',
-               :type => 'image/jpeg',
-               :x_sendfile => true )
-  end
-
   # GET /phrases/new
   def new
     @phrase = Phrase.new
