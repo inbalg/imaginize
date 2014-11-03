@@ -21,7 +21,6 @@ Phrase.create!(text: "my oh my do you want to say goodbye", category: "songs")
 
 # movies
 Phrase.create!(text: "reservoir dogs", category: "movies")
-Phrase.create!(text: "honey I shrunk the kids", category: "movies")
 Phrase.create!(text: "minority report", category: "movies")
 Phrase.create!(text: "home alone", category: "movies")
 Phrase.create!(text: "fight club", category: "movies")
