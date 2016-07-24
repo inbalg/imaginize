@@ -4,12 +4,7 @@ class Phrase < ActiveRecord::Base
   include HTTParty
 
   def as_image
-    if id==1
-      File.open("/Users/inbal/Pictures/interview1.jpeg", 'rb')
-    else
-      File.open("/Users/inbal/Pictures/interview2.jpeg", 'rb')
-    end
-
+      "http://images.clipartpanda.com/love-clip-art-red-love.svg"
   end
 
   def check_guess(guess)

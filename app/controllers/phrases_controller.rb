@@ -1,10 +1,12 @@
 class PhrasesController < ApplicationController
+  include GoogleSearchClient
   before_action :set_phrase, only: [:show, :edit, :update, :destroy]
 
   # GET /phrases
   # GET /phrases.json
   def index
     @phrase = Phrase.find(rand(1..Phrase.count))
+    @images = @phrase.text.split.map { |word| search_image_for(word) }
     render :show
   end
 
@@ -81,4 +83,22 @@ class PhrasesController < ApplicationController
     def phrase_params
       params.require(:phrase).permit(:text)
     end
+
+
+  def search_image_for(name)
+    results = GoogleSearchClient.search_image(name)
+
+    if results['error'] || results['searchInformation']['totalResults'].to_i == 0
+      @status = ERROR
+      @errors << results['error'].andand['message'] || 'no results found'
+      nil
+    else
+      choose_image(results['items'])
+    end
+  end
+
+  def choose_image(images)
+    sample_size = [images.size, 10].min
+    images[rand(sample_size)]['link']
+  end
 end

@@ -7,7 +7,9 @@
 
     <h2>What's the phrase?</h2>
     <div>
-      <%= image_tag "http://10.235.34.215/v1/imaginize/#{@phrase.text}" %>
+      <% @images.each do |image| %>
+        <%= image_tag(image) %>
+    <% end %>
       <br><br><br><%= label_tag "phrase_text", @phrase.text, class: "phrase_text" %>
     </div>
     <p class="guess">Take a guess!</p>
