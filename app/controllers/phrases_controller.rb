@@ -89,8 +89,8 @@ class PhrasesController < ApplicationController
     results = GoogleSearchClient.search_image(name)
 
     if results['error'] || results['searchInformation']['totalResults'].to_i == 0
-      @status = ERROR
       @errors << results['error'].andand['message'] || 'no results found'
+      puts @errors.last
       nil
     else
       choose_image(results['items'])
