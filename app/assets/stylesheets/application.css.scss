@@ -55,7 +55,7 @@ h1 {
 }
 
 #take-a-guess {
-  margin-top: 300px;
+  margin-top: 200px;
 
   * {
     display: inline;
@@ -129,12 +129,17 @@ label.phrase_text {
 }
 
 img.word {
-  width: 150px;
+  height: 200px;
 }
 
 div.success, div.fail {
+  margin: 0 90px;
+  margin-top: 80px;
+  padding: 20px;
   display: none;
   img {
-    width: 400px;
+    border-radius: 50px;
+    border: 20px solid #D53A62;
+    height: 300px;
   }
 }
