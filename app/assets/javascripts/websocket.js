@@ -1,23 +1,28 @@
 var socket, host;
+var pressed;
 host = "ws://localhost:3001";
 
 function connect() {
   try {
     socket = new WebSocket(host);
 
-    // socket.onopen = function() {
-    // }
+
+    socket.onopen = function() {
+      pressed = false;
+    }
 
     // socket.onclose = function() {
     // }
-    var pressed = false;
+
     socket.onmessage = function(msg) {
-      if (!pressed) {
         if (msg.data == 'button pressed'){
+          if (!pressed) {
           pressed = true;
           startGuessing();
+          setTimeout(function() {
+            pressed = false;
+          }, 1000)
         }
-        pressed = false;
       }
     }
   } catch(exception) {
