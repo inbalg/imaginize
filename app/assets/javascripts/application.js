@@ -70,8 +70,8 @@ function takeAGuess(guess) {
   }).success(function(data) {
     if (data.result == true) {
       showSuccess()
-      var audio = new Audio('success1.wav');
-      audio.play();
+      playSound("success")
+
       // light
       // music
       //after 5 seconds - refresh
@@ -91,14 +91,15 @@ function revealAnswer() {
 }
 
 function showSuccess() {
-  $(".success").show();
+  $(".fail").hide();
   $(".images").hide();
+  $(".success").show();
 }
 
 function showFailure() {
-  debugger
-  $(".fail").show();
+  $(".success").hide();
   $(".images").hide();
+  $(".fail").show();
   setTimeout(function() {
     tryAgain()
   }, 5000)
@@ -106,8 +107,17 @@ function showFailure() {
 
 function tryAgain() {
   showInInput('');
+  $(".success").hide();
   $(".fail").hide();
   $(".images").show();
+}
+
+function playSound(type) {
+  const minFileIndex = 1
+  const maxFileIndex = 4
+  const audioFile = "../assets/" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex) + ".wav"
+  var audio = new Audio(audioFile);
+  audio.play();
 }
 
 function normalizeGuess(guess) {

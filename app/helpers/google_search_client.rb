@@ -4,9 +4,9 @@ module GoogleSearchClient
   CLIPART_SITES_CX = "007226449032027480272:vn_vk55gcde"
 
   # GOOGLE_SEARCH_KEY = "AIzaSyDYHdv0Z5hZy4YzizVU1uT-3q6X6A4BW88" # Lior's key
-  # GOOGLE_SEARCH_KEY = "AIzaSyDQn_uG061TWBvmb6TbgyQVps-OsN_aLYE" # test-key
-   GOOGLE_SEARCH_KEY = "AIzaSyDgaxRFofq60v4Fadu81_FyNL0xzC4QXaA" # staging-key
-  #GOOGLE_SEARCH_KEY = "AIzaSyDR90GaqzU1MwfWFBF7MAcXdoybKX3HWJg" # dev-key
+  GOOGLE_SEARCH_KEY = "AIzaSyDQn_uG061TWBvmb6TbgyQVps-OsN_aLYE" # test-key
+  # GOOGLE_SEARCH_KEY = "AIzaSyDgaxRFofq60v4Fadu81_FyNL0xzC4QXaA" # staging-key
+  # GOOGLE_SEARCH_KEY = "AIzaSyDR90GaqzU1MwfWFBF7MAcXdoybKX3HWJg" # dev-key
 
   def self.search_image(name)
     options = {

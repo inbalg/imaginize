@@ -12,11 +12,12 @@ function connect() {
     // }
 
     socket.onmessage = function(msg) {
-      alert('button clicked');      // this is the button clicked event
+      if (msg == 'button pressed'){
+        startGuessing();
+      }
     }
   } catch(exception) {
-      alert('error!!!');
-      console.log(exception);
+    console.log(exception);
   }
 }
 
