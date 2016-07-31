@@ -12,7 +12,7 @@ function connect() {
     // }
 
     socket.onmessage = function(msg) {
-      alert('button clicked');      // this is the button clicked event
+      startGuessing();
     }
   } catch(exception) {
       alert('error!!!');
