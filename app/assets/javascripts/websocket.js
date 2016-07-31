@@ -10,10 +10,14 @@ function connect() {
 
     // socket.onclose = function() {
     // }
-
+    var pressed = false;
     socket.onmessage = function(msg) {
-      if (msg.data == 'button pressed'){
-        startGuessing();
+      if (!pressed) {
+        if (msg.data == 'button pressed'){
+          pressed = true;
+          startGuessing();
+        }
+        pressed = false;
       }
     }
   } catch(exception) {
