@@ -70,15 +70,9 @@ function takeAGuess(guess) {
     if (data.result == true) {
       playSound("success");
       showSuccess();
-      // light
-      // music
-      //after 5 seconds - refresh
     } else {
       playSound("fail");
       showFailure();
-      // error note
-      // "bad" music
-      // red light
     }
   }).fail(function() {
     alert("failed");
@@ -86,13 +80,15 @@ function takeAGuess(guess) {
 };
 
 function revealAnswer() {
+  playGiveUpSound();
   $(".phrase_text").show();
+  $("#take-a-guess").hide();
   setTimeout(function() {
-    $(".images").hide();
     $(".phrase_text").hide();
+    $(".images").hide();
     nextPhrase();
     tryAgain();
-  }, 3000)
+  }, 4000)
 }
 
 function showSuccess() {
@@ -151,6 +147,11 @@ function playSound(type) {
   const maxFileIndex = 4
   var audioFile = "../assets/" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex) + ".wav"
   var audio = new Audio(audioFile);
+  audio.play();
+}
+
+function playGiveUpSound() {
+  var audio = new Audio("../assets/giveup.wav");
   audio.play();
 }
 
