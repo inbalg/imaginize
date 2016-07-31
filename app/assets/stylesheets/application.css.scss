@@ -14,59 +14,105 @@
  *= require_self
  */
 
+@font-face {
+  font-family: 'FredokaOne-Regular';
+  src:font-url('FredokaOne-Regular.eot');
+  src:font-url('FredokaOne-Regular.eot?#iefix') format('embedded-opentype'),
+  font-url('FredokaOne-Regular.svg#FredokaOne-Regular') format('svg'),
+  font-url('FredokaOne-Regular.woff') format('woff'),
+  font-url('FredokaOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #FF5882;
+  font-family: FredokaOne-Regular;
+}
+
 h1 {
-    color: orange;
-    font-family: cursive;
-    font-size: 52px;
-    vertical-align: top;
+  color: orange;
+  font-family: cursive;
+  font-size: 52px;
+  vertical-align: top;
 }
 
 .spark {
-    height: 100px;
+  height: 100px;
+}
+
+.logo {
+  margin-top: 50px;
+}
+
+.images {
+  border-radius: 10px;
+  border: 5px solid #D53A62;
+  background-color: white;
+  margin: 0 90px;
+  margin-top: 80px;
+  padding: 20px;
+}
+
+#take-a-guess {
+  margin-top: 300px;
+
+  * {
+    display: inline;
+  }
+
+  p {
+    margin: 0 30px 0 30px;
+    font-size: 48px;
+    color: #FFFFFF;
+    vertical-align: top;
+  }
 }
 
 #main {
-    text-align: center;
+  text-align: center;
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 80px;
     margin-bottom: 30px;
+    color: #F8E71C;
+    margin-top: 150px;
 }
 
 p.hidden {
-    color: #ffffff;
-    font-size: 16px;
+  color: #ffffff;
+  font-size: 16px;
 }
 
 p.hint {
-    padding-right: 10px;
-    padding-top: 20px;
-    font-size: 16px;
+  padding-right: 10px;
+  padding-top: 20px;
+  font-size: 16px;
 }
 
 p.guess {
-    margin-top: 70px;
-    font-weight: bold;
+  margin-top: 70px;
+  font-weight: bold;
 }
 
 input {
-    width: 300px;
+  width: 300px;
 }
 
 label.phrase_text {
-    font-size: 20px;
-   display: none;
-    color: #ff0000;
+  font-size: 20px;
+  display: none;
+  color: #ff0000;
 }
 
 img.word {
-    width: 150px;
+  width: 150px;
 }
 
 div.success, div.fail {
   display: none;
-    img {
-      width: 400px;
-    }
+  img {
+    width: 400px;
+  }
 }

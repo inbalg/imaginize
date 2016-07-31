@@ -1,11 +1,7 @@
 <div id="main">
-    <div>
-      <img class="spark" src="http://i361.photobucket.com/albums/oo54/crackysparkles/sparkles/sparkles-7.gif">
-      <h1 style="display:inline-block">IMAGINIZE</h1>
-      <img class="spark" src="http://i361.photobucket.com/albums/oo54/crackysparkles/sparkles/sparkles-7.gif">
-    </div>
 
-    <h2>What's the <%= @phrase.category.singularize %>?</h2>
+    <%= image_tag("logo.svg", class: "logo") %>
+    <h2>Guess the <%= image_tag(@phrase.category.singularize + ".svg")  %></h2>
     <div class="success">
       <%= image_tag(@success[rand(@success.size)]) %>
     </div>
@@ -18,7 +14,14 @@
       <% end %>
       <br><br><br><%= label_tag "phrase_text", @phrase.text, class: "phrase_text" %>
     </div>
-    <p class="guess">Take a guess!</p>
+
+
+    <div id='take-a-guess'>
+      <%= image_tag("arrow.svg", class: "arrow") %>
+      <p class="guess">Press to answer</p>
+      <%= image_tag("arrow.svg", class: "arrow") %>
+    </div>
+
     <div>
       <%= hidden_field_tag "phrase_id", @phrase.id %>
 

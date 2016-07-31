@@ -70,13 +70,14 @@ function takeAGuess(guess) {
     dataType: 'json'
   }).success(function(data) {
     if (data.result == true) {
-      showSuccess()
       playSound("success")
+      showSuccess()
 
       // light
       // music
       //after 5 seconds - refresh
     } else {
+      playSound("fail")
       showFailure()
       // error note
       // "bad" music
@@ -116,7 +117,7 @@ function tryAgain() {
 function playSound(type) {
   const minFileIndex = 1
   const maxFileIndex = 4
-  const audioFile = "../assets/" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex) + ".wav"
+  var audioFile = "../assets/" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex) + ".wav"
   var audio = new Audio(audioFile);
   audio.play();
 }
