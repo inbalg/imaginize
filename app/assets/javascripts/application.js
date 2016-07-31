@@ -144,10 +144,10 @@ function tryAgain() {
 
 function playSound(type) {
   const minFileIndex = 1
-  const maxFileIndex = 4
-  var audioFile = "../assets/" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex) + ".wav"
-  var audio = new Audio(audioFile);
-  audio.play();
+  const maxFileIndex = 3
+  var audioFileId = "#" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex)
+  // var audio = new Audio(audioFile);
+  $(audioFileId).play();
 }
 
 function playGiveUpSound() {
