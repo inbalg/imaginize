@@ -70,9 +70,8 @@ function takeAGuess(guess) {
     dataType: 'json'
   }).success(function(data) {
     if (data.result == true) {
-      playSound("success")
-      showSuccess()
-
+      playSound("success");
+      showSuccess();
       // light
       // music
       //after 5 seconds - refresh
@@ -90,12 +89,21 @@ function takeAGuess(guess) {
 
 function revealAnswer() {
   $(".phrase_text").show();
+  setTimeout(function() {
+    $(".images").hide();
+    $(".phrase_text").hide();
+    nextPhrase();
+    tryAgain();
+  }, 3000)
 }
 
 function showSuccess() {
   $(".fail").hide();
   $(".images").hide();
   $(".success").show();
+  setTimeout(function() {
+    nextPhrase();
+  }, 3000)
 }
 
 function showFailure() {
@@ -104,7 +112,28 @@ function showFailure() {
   $(".fail").show();
   setTimeout(function() {
     tryAgain()
-  }, 5000)
+  }, 3000)
+}
+
+function nextPhrase() {
+  $.ajax({
+    url: '/',
+    dataType: 'json'
+  }).success(function(data) {
+    debugger
+    $('.word').remove();
+    var images = "";
+    data.images.forEach(function(image){
+      images += "<img class='word' src=" + image +'>';
+    });
+    $('.images').prepend(images);
+    $('.images label').text(data.phrase_text);
+    $('#phrase_id').val(data.phrase_id);
+    $(".success").hide();
+    $('.images').show();
+  }).fail(function() {
+    alert("failed");
+  });
 }
 
 function tryAgain() {

@@ -1,1 +1,3 @@
-json.extract! @phrase, :id, :text, :created_at, :updated_at
+json.images      @images
+json.phrase_id   @phrase.id
+json.phrase_text @phrase.text

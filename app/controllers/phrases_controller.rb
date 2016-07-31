@@ -1,6 +1,8 @@
 class PhrasesController < ApplicationController
   include GoogleSearchClient
   include PhrasesHelper
+  include LightsHelper
+
   before_action :set_phrase, only: [:show, :edit, :update, :destroy]
 
   # GET /phrases
@@ -66,7 +68,7 @@ class PhrasesController < ApplicationController
       format.json { render json: {result: result, status: 200 } }
     end
 
-    turn_on_the_lights(result) unless RUBY_PLATFORM == /darwin/
+    turn_on_the_lights(result) if RASPBERRY_DEVICE
   end
 
   # DELETE /phrases/1

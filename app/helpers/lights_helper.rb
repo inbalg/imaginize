@@ -1,7 +1,8 @@
 module LightsHelper
   include PiPiper
 
-  PINS = [17, 18, 22].map { |pin| PiPiper::Pin.new(:pin => pin, :direction => :out) }
+  RASPBERRY_DEVICE = `uname -a` =~ /raspberrypi/
+  PINS = [17, 18, 22].map { |pin| PiPiper::Pin.new(:pin => pin, :direction => :out) } if RASPBERRY_DEVICE
 
   def playing_lights
     lights()
