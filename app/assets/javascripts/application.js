@@ -128,6 +128,7 @@ function nextPhrase() {
     $('.images').prepend(images);
     $('.images label').text(data.phrase_text);
     $('#phrase_id').val(data.phrase_id);
+    $('h2 img').attr('src', 'assets/' + data.phrase_category + ".svg");
     showInInput('');
     $(".success").hide();
     $("#take-a-guess").show();
