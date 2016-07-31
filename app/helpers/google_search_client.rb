@@ -1,10 +1,9 @@
 module GoogleSearchClient
   require 'httparty'
-  # that's the one we use for review gui - not sure how to create a new one
   ALL_WEB_CX = "007226449032027480272:y4z475iunfe"
   CLIPART_SITES_CX = "007226449032027480272:vn_vk55gcde"
   # that's a new one I created
-  GOOGLE_SEARCH_KEY = "AIzaSyDQn_uG061TWBvmb6TbgyQVps-OsN_aLYE"
+  GOOGLE_SEARCH_KEY = "AIzaSyDR90GaqzU1MwfWFBF7MAcXdoybKX3HWJg"
 
   def self.search_image(name)
     options = {
@@ -13,7 +12,7 @@ module GoogleSearchClient
         'imgType'      => 'clipart',
         # 'imgSize'      => 'medium',
         'imgColorType' => 'color',
-        'cx'           => ALL_WEB_CX,
+        'cx'           => CLIPART_SITES_CX,
         'key'          => GOOGLE_SEARCH_KEY
     }
     HTTParty.get("https://www.googleapis.com/customsearch/v1?", :query => options)

@@ -1,5 +1,6 @@
 class PhrasesController < ApplicationController
   include GoogleSearchClient
+  include PhrasesHelper
   before_action :set_phrase, only: [:show, :edit, :update, :destroy]
 
   # GET /phrases
@@ -86,11 +87,15 @@ class PhrasesController < ApplicationController
 
 
   def search_image_for(name)
+    name.downcase!
+    if PRE_DEFINED.include?(name)
+      return PRE_DEFINED[name][rand(PRE_DEFINED[name].size)]
+    end
+
     results = GoogleSearchClient.search_image(name)
 
     if results['error'] || results['searchInformation']['totalResults'].to_i == 0
-      @errors << results['error'].andand['message'] || 'no results found'
-      puts @errors.last
+      puts "#{results['error'].andand['message'] || 'no results found'} for phrase <#{@phrase.text}>"
       nil
     else
       choose_image(results['items'])

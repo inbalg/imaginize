@@ -5,11 +5,11 @@
       <img class="spark" src="http://i361.photobucket.com/albums/oo54/crackysparkles/sparkles/sparkles-7.gif">
     </div>
 
-    <h2>What's the phrase?</h2>
+    <h2>What's the <%= @phrase.category.singularize %>?</h2>
     <div>
       <% @images.each do |image| %>
         <%= image_tag(image) %>
-    <% end %>
+      <% end %>
       <br><br><br><%= label_tag "phrase_text", @phrase.text, class: "phrase_text" %>
     </div>
     <p class="guess">Take a guess!</p>
@@ -18,10 +18,6 @@
       <%= text_field_tag "guess" %>
       <%= button_tag "Guess!", onclick: "takeAGuess()" %>
     </div>
-
-  <div>
-    <p class="hint">Hint?</p><p class="hidden"><%=@phrase.category%></p>
-  </div>
   <div>
     <a href="/phrases">Get a new phrase</a>
     |

@@ -59,3 +59,7 @@ label.phrase_text {
    display: none;
     color: #ff0000;
 }
+
+img {
+    width: 150px;
+}
