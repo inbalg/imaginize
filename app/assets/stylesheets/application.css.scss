@@ -14,6 +14,10 @@
  *= require_self
  */
 
+body {
+  background-color: #FF5882;
+}
+
 h1 {
     color: orange;
     font-family: cursive;
@@ -25,13 +29,23 @@ h1 {
     height: 100px;
 }
 
+.images {
+  border-radius: 10px;
+  background-color: white;
+  margin: 0 90px;
+  margin-top: 80px;
+  padding: 20px;
+}
+
 #main {
     text-align: center;
 }
 
 h2 {
-    font-size: 14px;
+    font-size: 80px;
     margin-bottom: 30px;
+    color: #F8E71C;
+    margin-top: 70px;
 }
 
 p.hidden {
