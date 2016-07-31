@@ -13,8 +13,8 @@
         <%= image_tag(image, class: 'word') %>
       <% end %>
     </div>
-  <%= label_tag "phrase_text", @phrase.text.capitalize, class: "phrase_text" %>
 
+    <div class="phrase_text"><%= @phrase.text.capitalize %></div>
     <div id='take-a-guess'>
       <div id='before-guess'>
         <%= image_tag("arrow.svg", class: "arrow") %>

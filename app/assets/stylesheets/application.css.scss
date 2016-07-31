@@ -19,7 +19,6 @@
   src:font-url('FredokaOne-Regular.eot');
   src:font-url('FredokaOne-Regular.eot?#iefix') format('embedded-opentype'),
   font-url('FredokaOne-Regular.svg#FredokaOne-Regular') format('svg'),
-  font-url('FredokaOne-Regular.woff') format('woff'),
   font-url('FredokaOne-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -126,15 +125,17 @@ input {
   width: 300px;
 }
 
-label.phrase_text {
+div.phrase_text {
   font-size: 40px;
   display: none;
+  color: #FFFFFF;
   margin-top: 20px;
 }
 
 img.word {
   max-width: 200px;
   max-height: 200px;
+  margin-right: 5px;
 }
 
 div.success, div.fail {
