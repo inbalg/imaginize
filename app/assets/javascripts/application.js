@@ -42,12 +42,12 @@ recognition.onresult = function(event) {
     if (event.results[i].isFinal) {
       final_transcript += event.results[i][0].transcript;
       showInInput(final_transcript);
+      takeAGuess(final_transcript);
     } else {
       interim_transcript += event.results[i][0].transcript;
       showInInput(interim_transcript);
     }
   }
-  takeAGuess(final_transcript);
 };
 
 
@@ -60,9 +60,6 @@ function startGuessing(event) {
 function takeAGuess(guess) {
   if (guess == "igiveup") {
     revealAnswer();
-    return;
-  } else if (guess == "tryagain") {
-    tryAgain();
     return;
   }
 
@@ -103,9 +100,13 @@ function showFailure() {
   $(".success").hide();
   $(".images").hide();
   $(".fail").show();
+  setTimeout(function() {
+    tryAgain()
+  }, 5000)
 }
 
 function tryAgain() {
+  showInInput('');
   $(".success").hide();
   $(".fail").hide();
   $(".images").show();
