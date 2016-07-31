@@ -17,7 +17,7 @@ function connect() {
           pressed = true;
           startGuessing();
         }
-        pressed = false;
+        setTimeout(function() { pressed = false; }), 1000);
       }
     }
   } catch(exception) {
