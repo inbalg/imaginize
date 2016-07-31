@@ -12,7 +12,7 @@ module GoogleSearchClient
         'imgType'      => 'clipart',
         # 'imgSize'      => 'medium',
         'imgColorType' => 'color',
-        'cx'           => CLIPART_SITES_CX,
+        'cx'           => ALL_WEB_CX,
         'key'          => GOOGLE_SEARCH_KEY
     }
     HTTParty.get("https://www.googleapis.com/customsearch/v1?", :query => options)
