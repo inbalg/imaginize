@@ -1,5 +1,6 @@
 <div id="main">
 
+    <%= image_tag("logo.svg", class: "logo") %>
     <h2>What's the <%= @phrase.category.singularize %>?</h2>
     <div class="success">
       <%= image_tag(@success[rand(@success.size)]) %>
