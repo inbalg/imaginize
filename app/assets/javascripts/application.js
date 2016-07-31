@@ -74,8 +74,8 @@ function takeAGuess(guess) {
       // music
       //after 5 seconds - refresh
     } else {
-      playSound("fail")
-      showFailure()
+      playSound("fail");
+      showFailure();
       // error note
       // "bad" music
       // red light
@@ -96,6 +96,7 @@ function revealAnswer() {
 }
 
 function showSuccess() {
+  $("#take-a-guess").hide();
   $(".fail").hide();
   $(".images").hide();
   $(".success").show();
@@ -105,11 +106,12 @@ function showSuccess() {
 }
 
 function showFailure() {
+  $("#take-a-guess").hide();
   $(".success").hide();
   $(".images").hide();
   $(".fail").show();
   setTimeout(function() {
-    tryAgain()
+    tryAgain();
   }, 3000)
 }
 
@@ -126,7 +128,10 @@ function nextPhrase() {
     $('.images').prepend(images);
     $('.images label').text(data.phrase_text);
     $('#phrase_id').val(data.phrase_id);
+    $('h2 img').attr('src', 'assets/' + data.phrase_category + ".svg");
+    showInInput('');
     $(".success").hide();
+    $("#take-a-guess").show();
     $('.images').show();
   }).fail(function() {
     alert("failed");
@@ -138,6 +143,7 @@ function tryAgain() {
   $(".success").hide();
   $(".fail").hide();
   $(".images").show();
+  $("#take-a-guess").show();
 }
 
 function playSound(type) {
