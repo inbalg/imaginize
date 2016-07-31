@@ -12,8 +12,11 @@ function connect() {
     // }
 
     socket.onmessage = function(msg) {
-      // this is the button clicked event
+      alert('button clicked');      // this is the button clicked event
     }
+  } catch(exception) {
+      alert('error!!!');
+      console.log(exception);
   }
 }
 
