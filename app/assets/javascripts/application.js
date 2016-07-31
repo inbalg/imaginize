@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-var attempts = [];
 var recognition = new webkitSpeechRecognition();
 var recognizing = false;
 var final_transcript = '';
@@ -49,7 +48,6 @@ recognition.onresult = function(event) {
     }
   }
 };
-
 
 function startGuessing(event) {
   recognition.stop();
@@ -155,17 +153,17 @@ function normalizeGuess(guess) {
 }
 
 function showInInput(phrase) {
-  var guess = document.getElementById("guess");
+  var guess = document.getElementById("guess-placeholder");
   guess.innerHTML = phrase;
 }
 
 function showRecordingIndication() {
-  var indicationDiv = document.getElementById('record-indication');
-  indicationDiv.innerHTML = "recording...";
+  $('#while-guess').show();
+  $('#before-guess').hide();
 };
 
 function stopRecordingIndication() {
-  var indicationDiv = document.getElementById('record-indication');
-  indicationDiv.innerHTML = "";
+  $('#while-guess').hide();
+  $('#before-guess').show();
 };
 
