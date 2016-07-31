@@ -94,6 +94,7 @@ p.hint {
 p.guess {
   margin-top: 70px;
   font-weight: bold;
+  font-family: FredokaOne-Regular;
 }
 
 div#guess {
@@ -109,6 +110,9 @@ div#guess {
   line-height: 18px;
   clear: both;
 
+  #guess-placeholder {
+    font-size: 40px;
+  }
   img {
     float: left;
   }
