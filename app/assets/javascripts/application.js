@@ -58,6 +58,7 @@ function startGuessing(event) {
 }
 
 function takeAGuess(guess) {
+  guess = normalizeGuess(guess);
   if (guess == "igiveup") {
     revealAnswer();
     return;
