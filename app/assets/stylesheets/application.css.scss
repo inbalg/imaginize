@@ -133,7 +133,8 @@ label.phrase_text {
 }
 
 img.word {
-  height: 200px;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 div.success, div.fail {
