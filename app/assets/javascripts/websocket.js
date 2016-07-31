@@ -12,7 +12,7 @@ function connect() {
     // }
 
     socket.onmessage = function(msg) {
-      if (msg == 'button pressed'){
+      if (msg.data == 'button pressed'){
         startGuessing();
       }
     }
