@@ -11,6 +11,8 @@ class Phrase < ActiveRecord::Base
     correct_phrase =  text.downcase.gsub(/\W/, '')
     formatted_guess = guess.downcase.gsub(/\W/, '')
 
-    correct_phrase == formatted_guess
+    distance = Levenshtein.distance(correct_phrase, formatted_guess)
+    distance <= 3
+    # correct_phrase == formatted_guess
   end
 end
