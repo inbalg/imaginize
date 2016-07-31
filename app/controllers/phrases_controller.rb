@@ -64,11 +64,11 @@ class PhrasesController < ApplicationController
     @phrase = Phrase.find(params[:id])
     result  = @phrase.check_guess(params[:guess])
 
+    Thread.new { turn_on_the_lights(result) } if RASPBERRY_DEVICE
+
     respond_to do |format|
       format.json { render json: {result: result, status: 200 } }
     end
-
-    turn_on_the_lights(result) if RASPBERRY_DEVICE
   end
 
   # DELETE /phrases/1
