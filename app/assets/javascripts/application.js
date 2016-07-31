@@ -15,8 +15,55 @@
 //= require turbolinks
 //= require_tree .
 
-function takeAGuess() {
-  guess = normalizeGuess($('#guess').val());
+var recognition = new webkitSpeechRecognition();
+var recognizing = false;
+var final_transcript = '';
+
+recognition.continuous = false;
+recognition.interimResults = true;
+
+recognition.onstart = function() {
+  recognizing = true;
+};
+
+recognition.onend = function() {
+  recognizing = false;
+  if (!final_transcript) {
+    return;
+  }
+};
+
+recognition.onresult = function(event) {
+  console.log(event);
+  var interim_transcript = '';
+  for (var i = event.resultIndex; i < event.results.length; ++i) {
+    if (event.results[i].isFinal) {
+      final_transcript += event.results[i][0].transcript;
+    } else {
+      interim_transcript += event.results[i][0].transcript;
+    }
+  }
+  //final_transcript = capitalize(final_transcript);
+  console.log(final_transcript);
+  takeAGuess(final_transcript);
+};
+
+
+function recording(event) {
+  recognition.stop();
+  final_transcript = '';
+  recognition.start();
+}
+
+
+
+
+
+
+
+
+
+function takeAGuess(guess) {
   if (guess == "igiveup") {
     revealAnswer();
     return;
