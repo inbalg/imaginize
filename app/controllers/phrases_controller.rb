@@ -66,7 +66,7 @@ class PhrasesController < ApplicationController
       format.json { render json: {result: result, status: 200 } }
     end
 
-    turn_on_the_lights(result)
+    turn_on_the_lights(result) unless RUBY_PLATFORM == /darwin/
   end
 
   # DELETE /phrases/1
