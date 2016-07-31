@@ -18,6 +18,9 @@ module PhrasesHelper
                 "https://clisawrite.files.wordpress.com/2015/11/d793f7b4e335a6e06852939905bc9840.jpg"],
       "it's" => ["https://pbs.twimg.com/profile_images/497454779849658372/fjWc0B_l.jpeg",
                 "http://media.urbandictionary.com/image/page/its-38696.jpg",
-                "http://tranbc.ca/wp-content/uploads/2013/09/ITS_icon.jpg"]
+                "http://tranbc.ca/wp-content/uploads/2013/09/ITS_icon.jpg"],
+      "it" =>   ["http://www.img.lx.it.pt/it_logo.jpg",
+                 "http://moodle.clip.pt/pluginfile.php/5059/coursecat/description/IT.jpg",
+                 "https://my.sunderland.ac.uk/download/attachments/48105010/uniitsupport?version=2&modificationDate=1442499174000&api=v2"]
   }
 end
