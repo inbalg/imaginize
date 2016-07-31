@@ -120,7 +120,6 @@ function nextPhrase() {
     url: '/',
     dataType: 'json'
   }).success(function(data) {
-    debugger
     $('.word').remove();
     var images = "";
     data.images.forEach(function(image){

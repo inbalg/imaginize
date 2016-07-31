@@ -50,6 +50,7 @@ Phrase.create!(text: "X Man", category: "movies")
 Phrase.create!(text: "Snow White And The Seven Dwarfs", category: "movies")
 Phrase.create!(text: "Pirates of the Caribbean", category: "movies")
 Phrase.create!(text: "The hunger games", category: "movies")
+Phrase.create!(text: "Now you see me", category: "movies")
 
 Phrase.all.each do |phrase|
   phrase.update(text: phrase.text.downcase)
