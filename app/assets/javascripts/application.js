@@ -42,12 +42,12 @@ recognition.onresult = function(event) {
     if (event.results[i].isFinal) {
       final_transcript += event.results[i][0].transcript;
       showInInput(final_transcript);
+      takeAGuess(final_transcript);
     } else {
       interim_transcript += event.results[i][0].transcript;
       showInInput(interim_transcript);
     }
   }
-  takeAGuess(final_transcript);
 };
 
 
@@ -62,9 +62,6 @@ function takeAGuess(guess) {
   if (guess == "igiveup") {
     revealAnswer();
     return;
-  } else if (guess == "tryagain") {
-    tryAgain();
-    return;
   }
 
   phares_id = $("#phrase_id").val()
@@ -74,8 +71,8 @@ function takeAGuess(guess) {
   }).success(function(data) {
     if (data.result == true) {
       showSuccess()
-      var audio = new Audio('success1.wav');
-      audio.play();
+      playSound("success")
+
       // light
       // music
       //after 5 seconds - refresh
@@ -95,18 +92,33 @@ function revealAnswer() {
 }
 
 function showSuccess() {
-  $(".success").show();
+  $(".fail").hide();
   $(".images").hide();
+  $(".success").show();
 }
 
 function showFailure() {
-  $(".fail").show();
+  $(".success").hide();
   $(".images").hide();
+  $(".fail").show();
+  setTimeout(function() {
+    tryAgain()
+  }, 5000)
 }
 
 function tryAgain() {
+  showInInput('');
+  $(".success").hide();
   $(".fail").hide();
   $(".images").show();
+}
+
+function playSound(type) {
+  const minFileIndex = 1
+  const maxFileIndex = 4
+  const audioFile = "../assets/" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex) + ".wav"
+  var audio = new Audio(audioFile);
+  audio.play();
 }
 
 function normalizeGuess(guess) {
