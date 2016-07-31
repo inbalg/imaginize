@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+var attempts = [];
 var recognition = new webkitSpeechRecognition();
 var recognizing = false;
 var final_transcript = '';
@@ -23,10 +24,12 @@ recognition.continuous = false;
 recognition.interimResults = true;
 
 recognition.onstart = function() {
+  showRecordingIndication()
   recognizing = true;
 };
 
 recognition.onend = function() {
+  stopRecordingIndication()
   recognizing = false;
   if (!final_transcript) {
     return;
@@ -34,34 +37,25 @@ recognition.onend = function() {
 };
 
 recognition.onresult = function(event) {
-  console.log(event);
   var interim_transcript = '';
   for (var i = event.resultIndex; i < event.results.length; ++i) {
     if (event.results[i].isFinal) {
       final_transcript += event.results[i][0].transcript;
+      showInInput(final_transcript);
     } else {
       interim_transcript += event.results[i][0].transcript;
+      showInInput(interim_transcript);
     }
   }
-  //final_transcript = capitalize(final_transcript);
-  console.log(final_transcript);
   takeAGuess(final_transcript);
 };
 
 
-function recording(event) {
+function startGuessing(event) {
   recognition.stop();
   final_transcript = '';
   recognition.start();
 }
-
-
-
-
-
-
-
-
 
 function takeAGuess(guess) {
   if (guess == "igiveup") {
@@ -118,4 +112,18 @@ function normalizeGuess(guess) {
   return (guess.toLowerCase().replace(/ /g, ""));
 }
 
+function showInInput(phrase) {
+  var guess = document.getElementById("guess");
+  guess.innerHTML = phrase;
+}
+
+function showRecordingIndication() {
+  var indicationDiv = document.getElementById('record-indication');
+  indicationDiv.innerHTML = "recording...";
+};
+
+function stopRecordingIndication() {
+  var indicationDiv = document.getElementById('record-indication');
+  indicationDiv.innerHTML = "";
+};
 
