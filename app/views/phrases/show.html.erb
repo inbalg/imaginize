@@ -6,9 +6,15 @@
     </div>
 
     <h2>What's the <%= @phrase.category.singularize %>?</h2>
-    <div>
+    <div class="success">
+      <%= image_tag(@success[rand(@success.size)]) %>
+    </div>
+    <div class="fail">
+      <%= image_tag(@fail[rand(@fail.size)]) %>
+    </div>
+    <div class="images">
       <% @images.each do |image| %>
-        <%= image_tag(image) %>
+        <%= image_tag(image, class: 'word') %>
       <% end %>
       <br><br><br><%= label_tag "phrase_text", @phrase.text, class: "phrase_text" %>
     </div>
@@ -18,9 +24,4 @@
       <%= text_field_tag "guess" %>
       <%= button_tag "Guess!", onclick: "takeAGuess()" %>
     </div>
-  <div>
-    <a href="/phrases">Get a new phrase</a>
-    |
-    <a href="#" onclick="revealAnswer()">Reveal answer</a>
-  </div>
 </div>

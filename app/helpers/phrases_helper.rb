@@ -23,4 +23,14 @@ module PhrasesHelper
                  "http://moodle.clip.pt/pluginfile.php/5059/coursecat/description/IT.jpg",
                  "https://my.sunderland.ac.uk/download/attachments/48105010/uniitsupport?version=2&modificationDate=1442499174000&api=v2"]
   }
+
+  SUCCESS = %w(http://i.amz.mshcdn.com/LgZmZ2JPMJayp39AdhJiRvwPpr4=/fit-in/850x850/http%3A%2F%2Fmashable.com%2Fwp-content%2Fgallery%2Ftriumph%2Fcolbert-report.gif
+               http://67.media.tumblr.com/96f7840e5dce741191faebf6aff16a8a/tumblr_inline_oa4chhpbo61tybhwg_500.gif
+               http://66.media.tumblr.com/c19f500799a0f67d8c167b647f94d7a2/tumblr_mot8zxRS9N1rcy99do1_500.gif
+              https://m.popkey.co/6e1f7c/K04NL.gif
+)
+
+  FAIL = %w(http://67.media.tumblr.com/91ede7d6da9220dfce3d024dc7182371/tumblr_mhf7kfsMKZ1qe5ugfo2_500.gif
+            http://66.media.tumblr.com/1a41ea9febd9ceb832405d91d8874e08/tumblr_mhf7kfsMKZ1qe5ugfo1_500.gif
+            http://66.media.tumblr.com/3306ddbf8d13fd873cab950311d57e5b/tumblr_mmxxt7LFta1qe5ugfo3_250.gif)
 end

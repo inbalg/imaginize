@@ -16,16 +16,32 @@
 //= require_tree .
 
 function takeAGuess() {
-  guess = $("#guess").val()
+  guess = normalizeGuess($('#guess').val());
+  if (guess == "igiveup") {
+    revealAnswer();
+    return;
+  } else if (guess == "tryagain") {
+    tryAgain();
+    return;
+  }
+
   phares_id = $("#phrase_id").val()
   $.ajax({
     url: '/phrases/'+phares_id+'/check_guess.json?guess='+guess,
     dataType: 'json'
   }).success(function(data) {
     if (data.result == true) {
-      alert("Correct!")
+      showSuccess()
+      var audio = new Audio('success1.wav');
+      audio.play();
+      // light
+      // music
+      //after 5 seconds - refresh
     } else {
-      alert("Wrong answer :(")
+      showFailure()
+      // error note
+      // "bad" music
+      // red light
     }
   }).fail(function() {
     alert("failed");
@@ -35,3 +51,24 @@ function takeAGuess() {
 function revealAnswer() {
   $(".phrase_text").show();
 }
+
+function showSuccess() {
+  $(".success").show();
+  $(".images").hide();
+}
+
+function showFailure() {
+  $(".fail").show();
+  $(".images").hide();
+}
+
+function tryAgain() {
+  $(".fail").hide();
+  $(".images").show();
+}
+
+function normalizeGuess(guess) {
+  return (guess.toLowerCase().replace(/ /g, ""));
+}
+
+

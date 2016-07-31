@@ -6,6 +6,8 @@ class PhrasesController < ApplicationController
   # GET /phrases
   # GET /phrases.json
   def index
+    @success = SUCCESS
+    @fail = FAIL
     @phrase = Phrase.find(rand(1..Phrase.count))
     @images = @phrase.text.split.map { |word| search_image_for(word) }
     render :show

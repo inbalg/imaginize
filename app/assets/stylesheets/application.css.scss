@@ -60,6 +60,13 @@ label.phrase_text {
     color: #ff0000;
 }
 
-img {
+img.word {
     width: 150px;
+}
+
+div.success, div.fail {
+  display: none;
+    img {
+      width: 400px;
+    }
 }
