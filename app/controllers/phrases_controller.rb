@@ -89,6 +89,7 @@ class PhrasesController < ApplicationController
 
 
   def search_image_for(name)
+    return "http://mindtechnology.com/assets/images/Now-Green-Circle.jpg"
     name.downcase!
     if PRE_DEFINED.include?(name)
       return PRE_DEFINED[name][rand(PRE_DEFINED[name].size)]

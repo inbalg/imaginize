@@ -17,17 +17,23 @@
 
 
     <div id='take-a-guess'>
-      <%= image_tag("arrow.svg", class: "arrow") %>
-      <p class="guess">Press to answer</p>
-      <%= image_tag("arrow.svg", class: "arrow") %>
+      <div id='before-guess'>
+        <%= image_tag("arrow.svg", class: "arrow") %>
+        <p class="guess">Press to answer</p>
+        <%= image_tag("arrow.svg", class: "arrow") %>
+      </div>
+
+      <div id='while-guess'>
+        <div id='guess'>
+          <%= image_tag("micro.svg", class: "micro") %>
+          <div id='guess-placeholder'></div>
+        </div>
+      </div>
     </div>
 
     <div>
       <%= hidden_field_tag "phrase_id", @phrase.id %>
 
-      <div id='guess'>
-
-      </div>
 
       <div id='record-indication'>
 

@@ -96,6 +96,28 @@ p.guess {
   font-weight: bold;
 }
 
+div#guess {
+  background-color: #D23A62;
+  border-radius: 45px;
+  width: 50%;
+  height: 60px;
+  padding: 20px;
+  margin: 0 auto;
+  color: #FFFFFF;
+  font-size: 30px;
+  display: block;
+  line-height: 18px;
+  clear: both;
+
+  img {
+    float: left;
+  }
+}
+
+#while-guess {
+  display: none;
+}
+
 input {
   width: 300px;
 }
