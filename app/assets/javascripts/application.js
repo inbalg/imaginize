@@ -88,8 +88,7 @@ function revealAnswer() {
     $(".phrase_text").hide();
     $(".images").hide();
     nextPhrase();
-    tryAgain();
-  }, 4000)
+  }, 3000)
 }
 
 function showSuccess() {
