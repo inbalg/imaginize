@@ -103,10 +103,10 @@ function showSuccess() {
 }
 
 function showFailure() {
-  $("#take-a-guess").hide();
   $(".success").hide();
   $(".images").hide();
   $(".fail").show();
+  $("#take-a-guess").hide();
   setTimeout(function() {
     tryAgain();
   }, 3000)
