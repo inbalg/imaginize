@@ -72,10 +72,11 @@ function takeAGuess(guess) {
       playSuccessSound();
       showSuccess();
     } else {
-      playFailureSound();
+      playFailSound();
       showFailure();
     }
   }).fail(function() {
+    //TODO: something nicer
     alert("failed");
   });
 };
@@ -142,20 +143,33 @@ function tryAgain() {
   $("#take-a-guess").show();
 }
 
-function playSuccessSound()
-{
-  var audio = new Audio("../assets/success1.wav")
+function playSuccessSound(type) {
+  const successSounds = [
+    new Audio("../assets/success1.wav"),
+    new Audio("../assets/success2.wav"),
+    new Audio("../assets/success3.wav"),
+    new Audio("../assets/success4.wav")
+  ]
+  var audio = successSounds[(Math.floor(Math.random() * (successSounds.length - 1 + 1)) + 1)]
   audio.play();
 }
 
-function playFailureSound()
-{
-  var audio = new Audio("../assets/fail1.wav")
+function playFailSound(type) {
+  const failSounds = [
+    new Audio("../assets/fail1.wav"),
+    new Audio("../assets/fail2.wav"),
+    new Audio("../assets/fail3.wav"),
+    new Audio("../assets/fail4.wav")
+  ]
+  var audio = failSounds[(Math.floor(Math.random() * (failSounds.length - 1 + 1)) + 1)]
   audio.play();
 }
 
-function playGiveUpSound() {
-  var audio = new Audio("../assets/giveup.wav");
+function playGiveUpSound(type) {
+  const giveUpSounds = [
+    new Audio("../assets/giveup.wav"),
+  ]
+  var audio = giveUpSounds[(Math.floor(Math.random() * (giveUpSounds.length - 1 + 1)) + 1)]
   audio.play();
 }
 

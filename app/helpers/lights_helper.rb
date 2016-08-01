@@ -5,7 +5,7 @@ module LightsHelper
   PINS = [17, 18, 22].map { |pin| PiPiper::Pin.new(:pin => pin, :direction => :out) } if RASPBERRY_DEVICE
 
   def success_lights
-    lights()
+    lights
   end
 
   def fail_lights

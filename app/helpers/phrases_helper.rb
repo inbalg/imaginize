@@ -32,8 +32,6 @@ module PhrasesHelper
   SUCCESS = %w(http://i.amz.mshcdn.com/LgZmZ2JPMJayp39AdhJiRvwPpr4=/fit-in/850x850/http%3A%2F%2Fmashable.com%2Fwp-content%2Fgallery%2Ftriumph%2Fcolbert-report.gif
                http://67.media.tumblr.com/96f7840e5dce741191faebf6aff16a8a/tumblr_inline_oa4chhpbo61tybhwg_500.gif
                http://66.media.tumblr.com/c19f500799a0f67d8c167b647f94d7a2/tumblr_mot8zxRS9N1rcy99do1_500.gif
-               http://66.media.tumblr.com/3306ddbf8d13fd873cab950311d57e5b/tumblr_mmxxt7LFta1qe5ugfo3_250.gif
-               http://67.media.tumblr.com/efe0d1e1272642b916b3fbff5fb74bcd/tumblr_mmxxt7LFta1qe5ugfo4_250.gif
                http://67.media.tumblr.com/9bd2432e8aac58d364bc7255e1f09935/tumblr_morwuuOO1o1rcy99do1_500.gif
                https://m.popkey.co/6e1f7c/K04NL.gif)
 
