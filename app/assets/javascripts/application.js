@@ -50,8 +50,9 @@ recognition.onresult = function(event) {
 };
 
 function startGuessing(event) {
-  recognition.stop();
   final_transcript = '';
+  showInInput('');
+  recognition.stop();
   recognition.start();
 }
 
@@ -167,6 +168,7 @@ function showInInput(phrase) {
 function showRecordingIndication() {
   $('#while-guess').show();
   $('#before-guess').hide();
+  
 };
 
 function stopRecordingIndication() {
