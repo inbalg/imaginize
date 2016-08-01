@@ -27,6 +27,10 @@ recognition.onstart = function() {
   recognizing = true;
 };
 
+recognition.onerror = function(event) {
+  alert(event.error);
+}
+
 recognition.onend = function() {
   stopRecordingIndication()
   recognizing = false;
@@ -143,7 +147,7 @@ function tryAgain() {
   $("#take-a-guess").show();
 }
 
-function playSuccessSound(type) {
+function playSuccessSound() {
   const successSounds = [
     new Audio("../assets/success4.wav")
   ]
@@ -151,7 +155,7 @@ function playSuccessSound(type) {
   audio.play();
 }
 
-function playFailSound(type) {
+function playFailSound() {
   const failSounds = [
     new Audio("../assets/fail3.wav"),
     new Audio("../assets/fail4.wav")
@@ -160,7 +164,7 @@ function playFailSound(type) {
   audio.play();
 }
 
-function playGiveUpSound(type) {
+function playGiveUpSound() {
   const giveUpAudio = new Audio("../assets/giveup.wav")
   giveUpAudio.play();
 }
