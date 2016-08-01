@@ -50,8 +50,9 @@ recognition.onresult = function(event) {
 };
 
 function startGuessing(event) {
-  recognition.stop();
   final_transcript = '';
+  showInInput('');
+  recognition.stop();
   recognition.start();
 }
 
@@ -123,7 +124,7 @@ function nextPhrase() {
       images += "<img class='word' src=" + image +'>';
     });
     $('.images').prepend(images);
-    $('.images label').text(data.phrase_text);
+    $('.phrase_text').text(data.phrase_text);
     $('#phrase_id').val(data.phrase_id);
     $('h2 img').attr('src', 'assets/' + data.phrase_category + ".svg");
     showInInput('');
@@ -185,6 +186,7 @@ function showInInput(phrase) {
 function showRecordingIndication() {
   $('#while-guess').show();
   $('#before-guess').hide();
+  
 };
 
 function stopRecordingIndication() {

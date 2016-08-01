@@ -16,7 +16,7 @@
 
     <div class="phrase_text"><%= @phrase.text.capitalize %></div>
     <div id='take-a-guess'>
-      <div id='before-guess'>
+      <div id='before-guess' onclick='startGuessing()' >
         <%= image_tag("arrow.svg", class: "arrow") %>
         <p class="guess">Press to answer</p>
         <%= image_tag("arrow.svg", class: "arrow") %>
@@ -29,9 +29,16 @@
         </div>
       </div>
     </div>
-
     <div>
       <%= hidden_field_tag "phrase_id", @phrase.id %>
-      <%= button_tag "Guess!", onclick: "startGuessing()" %>
     </div>
+
+    <audio id="fail1" preload="auto" src="../assets/fail1.wav">
+    <audio id="fail2" preload="auto" src="../assets/fail2.wav">
+    <audio id="fail3" preload="auto" src="../assets/fail3.wav">
+
+    <audio id="success1" preload="auto" src="../assets/success1.wav">
+    <audio id="success2" preload="auto" src="../assets/success2.wav">
+    <audio id="success3" preload="auto" src="../assets/success3.wav">
+
 </div>
