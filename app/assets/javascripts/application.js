@@ -73,10 +73,8 @@ function takeAGuess(guess) {
     dataType: 'json'
   }).success(function(data) {
     if (data.result == true) {
-      playSuccessSound();
       showSuccess();
     } else {
-      playFailSound();
       showFailure();
     }
   }).fail(function() {
@@ -145,23 +143,6 @@ function tryAgain() {
   $(".fail").hide();
   $(".images").show();
   $("#take-a-guess").show();
-}
-
-function playSuccessSound() {
-  const successSounds = [
-    new Audio("../assets/success4.wav")
-  ]
-  var audio = successSounds[(Math.floor(Math.random() * (successSounds.length - 1 + 1)) + 1) - 1]
-  audio.play();
-}
-
-function playFailSound() {
-  const failSounds = [
-    new Audio("../assets/fail3.wav"),
-    new Audio("../assets/fail4.wav")
-  ]
-  var audio = failSounds[(Math.floor(Math.random() * (failSounds.length - 1 + 1)) + 1) - 1]
-  audio.play();
 }
 
 function playGiveUpSound() {

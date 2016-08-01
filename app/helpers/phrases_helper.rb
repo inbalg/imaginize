@@ -38,4 +38,7 @@ module PhrasesHelper
   FAIL = %w(http://67.media.tumblr.com/91ede7d6da9220dfce3d024dc7182371/tumblr_mhf7kfsMKZ1qe5ugfo2_500.gif
             http://66.media.tumblr.com/1a41ea9febd9ceb832405d91d8874e08/tumblr_mhf7kfsMKZ1qe5ugfo1_500.gif
             http://66.media.tumblr.com/8993e169fb712897d17cf83262a16d6c/tumblr_mhf7kfsMKZ1qe5ugfo3_500.gif)
+
+  SUCCESS_SOUNDS = %w(../assets/images/success1.wav ../assets/success2.wav ../assets/success3.wav ../assets/images/success4.wav ../assets/images/success5.wav)
+  FAIL_SOUNDS = %w(../assets/images/fail1.wav ../assets/fail2.wav ../assets/fail3.wav ../assets/images/fail4.wav)
 end

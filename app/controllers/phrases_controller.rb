@@ -65,6 +65,7 @@ class PhrasesController < ApplicationController
     result  = @phrase.check_guess(params[:guess])
 
     Thread.new { turn_on_the_lights(result) } if RASPBERRY_DEVICE
+    Thread.new { play_sound(result) } if RASPBERRY_DEVICE
 
     respond_to do |format|
       format.json { render json: {result: result, status: 200 } }
@@ -117,5 +118,10 @@ class PhrasesController < ApplicationController
 
   def turn_on_the_lights(result)
     result ? success_lights : fail_lights
+  end
+
+  def play_sound(result)
+    sound = result ? SUCCESS_SOUNDS[rand(SUCCESS_SOUNDS.size)] : FAIL_SOUNDS[rand(FAIL_SOUNDS.size)]
+    system "aplay #{sound}" if RASPBERRY_DEVICE
   end
 end
