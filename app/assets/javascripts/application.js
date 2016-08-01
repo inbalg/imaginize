@@ -150,7 +150,7 @@ function playSuccessSound(type) {
     new Audio("../assets/success3.wav"),
     new Audio("../assets/success4.wav")
   ]
-  var audio = successSounds[(Math.floor(Math.random() * (successSounds.length - 1 + 1)) + 1)]
+  var audio = successSounds[(Math.floor(Math.random() * (successSounds.length - 1 + 1)) + 1) - 1]
   audio.play();
 }
 
@@ -161,16 +161,13 @@ function playFailSound(type) {
     new Audio("../assets/fail3.wav"),
     new Audio("../assets/fail4.wav")
   ]
-  var audio = failSounds[(Math.floor(Math.random() * (failSounds.length - 1 + 1)) + 1)]
+  var audio = failSounds[(Math.floor(Math.random() * (failSounds.length - 1 + 1)) + 1) - 1]
   audio.play();
 }
 
 function playGiveUpSound(type) {
-  const giveUpSounds = [
-    new Audio("../assets/giveup.wav"),
-  ]
-  var audio = giveUpSounds[(Math.floor(Math.random() * (giveUpSounds.length - 1 + 1)) + 1)]
-  audio.play();
+  const giveUpAudio = new Audio("../assets/giveup.wav")
+  giveUpAudio.play();
 }
 
 function normalizeGuess(guess) {
