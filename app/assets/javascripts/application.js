@@ -142,19 +142,16 @@ function tryAgain() {
   $("#take-a-guess").show();
 }
 
-function playSound(file) {
-  var audio = new Audio(audioFile);
-  audio.play();
-}
-
 function playSuccessSound()
 {
-  playSound("../assets/success1.wav")
+  var audio = new Audio("../assets/success1.wav")
+  audio.play();
 }
 
 function playFailureSound()
 {
-  playSound("../assets/fail1.wav")
+  var audio = new Audio("../assets/fail1.wav")
+  audio.play();
 }
 
 function playGiveUpSound() {
