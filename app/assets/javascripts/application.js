@@ -69,10 +69,10 @@ function takeAGuess(guess) {
     dataType: 'json'
   }).success(function(data) {
     if (data.result == true) {
-      playSound("success");
+      playSuccessSound();
       showSuccess();
     } else {
-      playSound("fail");
+      playFailureSound();
       showFailure();
     }
   }).fail(function() {
@@ -143,12 +143,16 @@ function tryAgain() {
   $("#take-a-guess").show();
 }
 
-function playSound(type) {
-  const minFileIndex = 1
-  const maxFileIndex = 3
-  var audioFileId = "#" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex)
-  // var audio = new Audio(audioFile);
-  $(audioFileId).play();
+function playSuccessSound()
+{
+  var audio = new Audio("../assets/success1.wav")
+  audio.play();
+}
+
+function playFailureSound()
+{
+  var audio = new Audio("../assets/fail1.wav")
+  audio.play();
 }
 
 function playGiveUpSound() {
