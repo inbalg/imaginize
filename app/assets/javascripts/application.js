@@ -68,13 +68,13 @@ function takeAGuess(guess) {
     dataType: 'json'
   }).success(function(data) {
     if (data.result == true) {
-      playSound("success");
+      playSuccessSound();
       showSuccess();
       // light
       // music
       //after 5 seconds - refresh
     } else {
-      playSound("fail");
+      playFailureSound();
       showFailure();
       // error note
       // "bad" music
@@ -146,12 +146,19 @@ function tryAgain() {
   $("#take-a-guess").show();
 }
 
-function playSound(type) {
-  const minFileIndex = 1
-  const maxFileIndex = 3
-  var audioFileId = "#" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex)
-  // var audio = new Audio(audioFile);
-  $(audioFileId).play();
+function playSound(file) {
+  var audio = new Audio(audioFile);
+  audio.play();
+}
+
+function playSuccessSound()
+{
+  playSound("../assets/success1.wav")
+}
+
+function playFailureSound()
+{
+  playSound("../assets/fail1.wav")
 }
 
 function normalizeGuess(guess) {
