@@ -27,6 +27,10 @@ recognition.onstart = function() {
   recognizing = true;
 };
 
+recognition.onerror = function(event) {
+  alert(event.error);
+}
+
 recognition.onend = function() {
   stopRecordingIndication()
   recognizing = false;
