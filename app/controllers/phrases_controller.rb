@@ -64,8 +64,10 @@ class PhrasesController < ApplicationController
     @phrase = Phrase.find(params[:id])
     result  = @phrase.check_guess(params[:guess])
 
-    Thread.new { turn_on_the_lights(result) } if RASPBERRY_DEVICE
-    Thread.new { play_sound(result) } if RASPBERRY_DEVICE
+    if RASPBERRY_DEVICE
+      threads = [Thread.new { turn_on_the_lights(result) }, Thread.new { play_sound(result) }]
+      threads.each &:join
+    end
 
     respond_to do |format|
       format.json { render json: {result: result, status: 200 } }
@@ -122,6 +124,7 @@ class PhrasesController < ApplicationController
 
   def play_sound(result)
     sound = result ? SUCCESS_SOUNDS[rand(SUCCESS_SOUNDS.size)] : FAIL_SOUNDS[rand(FAIL_SOUNDS.size)]
-    system "aplay #{sound}" if RASPBERRY_DEVICE
+    sound_file = Rails.root.join("app", "assets", "images", sound)
+    system "afplay #{sound_file}"
   end
 end
