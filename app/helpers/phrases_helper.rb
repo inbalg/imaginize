@@ -1,11 +1,11 @@
 module PhrasesHelper
   PRE_DEFINED = {
       "a" => %w(http://www.clker.com/cliparts/3/4/7/b/7/P/uppercase-a-md.png,
-              https://s-media-cache-ak0.pinimg.com/236x/71/e7/e7/71e7e7da0d249532054f3ae766824404.jpg,
+              http://www.seattlestagedtosell.com/wp-content/uploads/2012/08/3499401481_2188e5cd42.jpg,
               http://www.clker.com/cliparts/e/P/o/2/U/Q/letter-a-md.png),
-      "the" => %w(http://ajournalofmusicalthings.com/wp-content/uploads/The.png,
+      "the" => %w(http://www.twainquotes.com/thewordthe.jpg,
                 https://www.newcastle.edu.au/__data/assets/image/0006/215880/THE-UONWebsite-Homepage-TileFeature-246x143_02.jpg,
-                http://www.freethebears.org/images/required/free-the-bears-logo-reversed.png),
+                https://sporadicallyupdated.files.wordpress.com/2014/12/the-copy-54773ed37044e362cda4eb8a261e079fb8c7d553-s6-c30.jpg),
       "i'm" => %w(http://static1.squarespace.com/static/550f4b99e4b04f84a0e5b87b/56578143e4b06b23bf182ff9/56578170e4b06b23bf183121/1455995921751/I'm_Isola_Marras.png?format=500w,
                https://pbs.twimg.com/profile_images/459600086087901185/ugscX3mw_400x400.jpeg,
                https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAPKAAAAJDQxY2EzZWVkLWY1OTItNGRhNy1iNmEwLTA0NTE4MzQyYzFlYg.png),
