@@ -13,7 +13,7 @@ module GoogleSearchClient
         'q'            => name,
         'searchType'   => 'image',
         'imgType'      => 'clipart',
-        # 'imgSize'      => 'medium',
+        'imgSize'      => 'medium',
         'imgColorType' => 'color',
         'cx'           => ALL_WEB_CX,
         'key'          => GOOGLE_SEARCH_KEY

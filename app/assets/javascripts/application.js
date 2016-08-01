@@ -157,10 +157,10 @@ function playSuccessSound() {
 
 function playFailSound() {
   const failSounds = [
-    new Audio("../assets/fail3.wav"),
-    new Audio("../assets/fail4.wav")
+    "../assets/fail3.wav",
+    "../assets/fail4.wav"
   ]
-  var audio = failSounds[(Math.floor(Math.random() * (failSounds.length - 1 + 1)) + 1) - 1]
+  var audio = new Audio(failSounds[(Math.floor(Math.random() * (failSounds.length - 1 + 1)) + 1) - 1]);
   audio.play();
 }
 
