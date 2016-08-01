@@ -145,9 +145,6 @@ function tryAgain() {
 
 function playSuccessSound(type) {
   const successSounds = [
-    new Audio("../assets/success1.wav"),
-    new Audio("../assets/success2.wav"),
-    new Audio("../assets/success3.wav"),
     new Audio("../assets/success4.wav")
   ]
   var audio = successSounds[(Math.floor(Math.random() * (successSounds.length - 1 + 1)) + 1) - 1]
@@ -156,8 +153,6 @@ function playSuccessSound(type) {
 
 function playFailSound(type) {
   const failSounds = [
-    new Audio("../assets/fail1.wav"),
-    new Audio("../assets/fail2.wav"),
     new Audio("../assets/fail3.wav"),
     new Audio("../assets/fail4.wav")
   ]
