@@ -125,6 +125,6 @@ class PhrasesController < ApplicationController
   def play_sound(result)
     sound = result ? SUCCESS_SOUNDS[rand(SUCCESS_SOUNDS.size)] : FAIL_SOUNDS[rand(FAIL_SOUNDS.size)]
     sound_file = Rails.root.join("app", "assets", "images", sound)
-    system "afplay #{sound_file}"
+    system "aplay #{sound_file}"
   end
 end
