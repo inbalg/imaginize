@@ -15,7 +15,6 @@
 //= require turbolinks
 //= require_tree .
 
-var attempts = [];
 var recognition = new webkitSpeechRecognition();
 var recognizing = false;
 var final_transcript = '';
@@ -50,7 +49,6 @@ recognition.onresult = function(event) {
   }
 };
 
-
 function startGuessing(event) {
   recognition.stop();
   final_transcript = '';
@@ -70,18 +68,11 @@ function takeAGuess(guess) {
     dataType: 'json'
   }).success(function(data) {
     if (data.result == true) {
-      playSound("success")
-      showSuccess()
-
-      // light
-      // music
-      //after 5 seconds - refresh
+      playSound("success");
+      showSuccess();
     } else {
-      playSound("fail")
-      showFailure()
-      // error note
-      // "bad" music
-      // red light
+      playSound("fail");
+      showFailure();
     }
   }).fail(function() {
     alert("failed");
@@ -89,22 +80,58 @@ function takeAGuess(guess) {
 };
 
 function revealAnswer() {
+  playGiveUpSound();
   $(".phrase_text").show();
+  $("#take-a-guess").hide();
+  setTimeout(function() {
+    $(".phrase_text").hide();
+    $(".images").hide();
+    nextPhrase();
+    tryAgain();
+  }, 4000)
 }
 
 function showSuccess() {
+  $("#take-a-guess").hide();
   $(".fail").hide();
   $(".images").hide();
   $(".success").show();
+  setTimeout(function() {
+    nextPhrase();
+  }, 3000)
 }
 
 function showFailure() {
+  $("#take-a-guess").hide();
   $(".success").hide();
   $(".images").hide();
   $(".fail").show();
   setTimeout(function() {
-    tryAgain()
-  }, 5000)
+    tryAgain();
+  }, 3000)
+}
+
+function nextPhrase() {
+  $.ajax({
+    url: '/',
+    dataType: 'json'
+  }).success(function(data) {
+    $('.word').remove();
+    var images = "";
+    data.images.forEach(function(image){
+      images += "<img class='word' src=" + image +'>';
+    });
+    $('.images').prepend(images);
+    $('.images label').text(data.phrase_text);
+    $('#phrase_id').val(data.phrase_id);
+    $('h2 img').attr('src', 'assets/' + data.phrase_category + ".svg");
+    showInInput('');
+    $(".success").hide();
+    $("#take-a-guess").show();
+    $('.images').show();
+  }).fail(function() {
+    alert("failed");
+  });
 }
 
 function tryAgain() {
@@ -112,13 +139,19 @@ function tryAgain() {
   $(".success").hide();
   $(".fail").hide();
   $(".images").show();
+  $("#take-a-guess").show();
 }
 
 function playSound(type) {
   const minFileIndex = 1
-  const maxFileIndex = 4
-  var audioFile = "../assets/" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex) + ".wav"
-  var audio = new Audio(audioFile);
+  const maxFileIndex = 3
+  var audioFileId = "#" + type + (Math.floor(Math.random() * (maxFileIndex - minFileIndex + 1)) + minFileIndex)
+  // var audio = new Audio(audioFile);
+  $(audioFileId).play();
+}
+
+function playGiveUpSound() {
+  var audio = new Audio("../assets/giveup.wav");
   audio.play();
 }
 
@@ -127,17 +160,17 @@ function normalizeGuess(guess) {
 }
 
 function showInInput(phrase) {
-  var guess = document.getElementById("guess");
+  var guess = document.getElementById("guess-placeholder");
   guess.innerHTML = phrase;
 }
 
 function showRecordingIndication() {
-  var indicationDiv = document.getElementById('record-indication');
-  indicationDiv.innerHTML = "recording...";
+  $('#while-guess').show();
+  $('#before-guess').hide();
 };
 
 function stopRecordingIndication() {
-  var indicationDiv = document.getElementById('record-indication');
-  indicationDiv.innerHTML = "";
+  $('#while-guess').hide();
+  $('#before-guess').show();
 };
 

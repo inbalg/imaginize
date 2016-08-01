@@ -1,6 +1,8 @@
 class PhrasesController < ApplicationController
   include GoogleSearchClient
   include PhrasesHelper
+  include LightsHelper
+
   before_action :set_phrase, only: [:show, :edit, :update, :destroy]
 
   # GET /phrases
@@ -60,9 +62,12 @@ class PhrasesController < ApplicationController
 
   def check_guess
     @phrase = Phrase.find(params[:id])
+    result  = @phrase.check_guess(params[:guess])
+
+    Thread.new { turn_on_the_lights(result) } if RASPBERRY_DEVICE
 
     respond_to do |format|
-      format.json { render json: {result: @phrase.check_guess(params[:guess]), status: 200 } }
+      format.json { render json: {result: result, status: 200 } }
     end
   end
 
@@ -89,6 +94,7 @@ class PhrasesController < ApplicationController
 
 
   def search_image_for(name)
+    #return "http://mindtechnology.com/assets/images/Now-Green-Circle.jpg"
     name.downcase!
     if PRE_DEFINED.include?(name)
       return PRE_DEFINED[name][rand(PRE_DEFINED[name].size)]
@@ -107,5 +113,9 @@ class PhrasesController < ApplicationController
   def choose_image(images)
     sample_size = [images.size, 10].min
     images[rand(sample_size)]['link']
+  end
+
+  def turn_on_the_lights(result)
+    result ? success_lights : fail_lights
   end
 end
